@@ -4,7 +4,7 @@ RUN apk add g++ make python
 #copy source 
 COPY . /app
 
-# Install deps 
+# Install deps and build
 RUN cd /app &&  npm install && npm run build
 
 
