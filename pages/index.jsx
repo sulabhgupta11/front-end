@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import TopBar from "../components/TopBar";
 import Products from './products/productCatalog';
-import Search from "../Components/Search";
-import TopBar from "../Components/TopBar";
+import Search from "../components/Search";
+
 
 
 export default Home

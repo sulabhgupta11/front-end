@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import TopBar from "../../Components/TopBar";
+import TopBar from "../../components/TopBar"
 import { Link } from '../../components/Link';
 import { productService } from '../../services/product.service';
 import { searchService } from '../../services/search.service';
