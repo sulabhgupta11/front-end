@@ -71,7 +71,7 @@ function Register() {
                                 {formState.isSubmitting && <span className="spinner-border spinner-border-sm mr-1"></span>}
                                 Register
                             </button>
-                            <Link style={{ float: "right" }} href="/auth/login" className="btn btn-link">Cancel</Link>
+                            <Link style={{ float: "right" }} href="/user/login" className="btn btn-link">Cancel</Link>
                         </div>
                     </form>
                 </div>

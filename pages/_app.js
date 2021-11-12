@@ -29,12 +29,12 @@ function App({ Component, pageProps }) {
     function authCheck(url) {
         // redirect to login page if accessing a private page and not logged in 
         setUser(userService.userValue);
-        const publicPaths = ['/auth/login', '/auth/register'];
+        const publicPaths = ['/user/login', '/user/register'];
         const path = url.split('?')[0];
         if (!userService.userValue && !publicPaths.includes(path)) {
             setAuthorized(false);
             router.push({
-                pathname: '/auth/login',
+                pathname: '/user/login',
                 query: { returnUrl: router.asPath }
             });
         } else {
