@@ -2,12 +2,12 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: 12
       python: 3.8
     commands:
       - echo not installing anything else
   pre_build:
       commands:
+        - n latest
         # Docker Image Tag with Date Time & Code Buiild Resolved Source Version
         - TAG="$(date +%Y-%m-%d.%H.%M.%S).$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | head -c 8)"
         # Update Image tag in our Kubernetes Deployment Manifest        
