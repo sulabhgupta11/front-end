@@ -22,7 +22,11 @@ phases:
         # Update Kube config Home Directory
         - export KUBECONFIG=$HOME/.kube/config
   build:
-    commands:     
+    commands:
+      # Check Node Version
+      - node --version
+      # Check npm version
+      - npm --version     
       # Build Docker Image
       - echo "Building the Docker image..."
       - docker build --tag $REPOSITORY_URI:$TAG .
