@@ -5,9 +5,7 @@ RUN apk add g++ make python
 COPY . /app
 
 # Install deps 
-RUN cd /app &&  npm install 
+RUN cd /app &&  npm install && npm run build
 
-# Build 
-RUN npm run build
 
 ENTRYPOINT [ "npm", "run", "start" ]
