@@ -1,0 +1,20 @@
+[
+    {
+        "firstName": "Sanjeev",
+        "lastName": "Kumar",
+        "username": "sanjeev2315",
+        "hash": "$2a$10$zX68yZOKAAAO6z71oJ0PI.sd25aw/oM/n59bWQFd8JKh.XBKLgYby",
+        "id": 1,
+        "dateCreated": "2021-10-23T10:25:36.558Z",
+        "dateUpdated": "2021-10-23T10:25:36.558Z"
+    },
+    {
+        "firstName": "Sanjeev",
+        "lastName": "Kumar",
+        "email": "sanjeev2315@gmail.com",
+        "hash": "$2a$10$s9bqpoNXnemQozvG08X7aeKwBfqBKkEd17F2EKYEimunP.FUyCkA2",
+        "id": 2,
+        "dateCreated": "2021-11-10T08:31:04.421Z",
+        "dateUpdated": "2021-11-10T08:31:04.421Z"
+    }
+]

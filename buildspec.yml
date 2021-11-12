@@ -1,0 +1,47 @@
+version: 0.1
+phases:
+  install:
+    runtime-versions:
+      nodejs: 10
+    commands:
+      - echo not installing anything else
+  pre_build:
+      commands:
+        # Docker Image Tag with Date Time & Code Buiild Resolved Source Version
+        - TAG="$(date +%Y-%m-%d.%H.%M.%S).$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | head -c 8)"
+        # Update Image tag in our Kubernetes Deployment Manifest        
+        - echo "Update Image tag in kube-manifest..."
+        - sed -i 's@CONTAINER_IMAGE@'"$REPOSITORY_URI:$TAG"'@' infra/svc-depl.yaml
+        # Verify AWS CLI Version        
+        - echo "Verify AWS CLI Version..."
+        - aws --version
+        # Login to ECR Registry for docker to push the image to ECR Repository
+        - echo "Login in to Amazon ECR..."
+        - $(aws ecr get-login --no-include-email)
+        # Update Kube config Home Directory
+        - export KUBECONFIG=$HOME/.kube/config
+  build:
+    commands:     
+      # Build Docker Image
+      - echo "Building the Docker image..."
+      - docker build --tag $REPOSITORY_URI:$TAG .
+  post_build:
+    commands:
+      # Push Docker Image to ECR Repository
+      - echo "Build completed on `date`"
+      - echo "Pushing the Docker image to ECR Repository"
+      - docker push $REPOSITORY_URI:$TAG
+      - echo "Docker Image Push to ECR Completed -  $REPOSITORY_URI:$TAG"
+      # Setup kubectl with our EKS Cluster              
+      - echo "Update Kube Config"      
+      - aws eks update-kubeconfig --name $EKS_CLUSTER_NAME
+      # Apply changes to our Application using kubectl
+      - echo "Apply changes to kube manifests"            
+      - kubectl apply -f infra/
+      - echo "Completed applying changes to Kubernetes Objects"           
+      # Create Artifacts which we can use if we want to continue our pipeline for other stages
+      - printf '[{"name":"front-end-svc-depl.yaml","imageUri":"%s"}]' $REPOSITORY_URI:$TAG > build.json
+artifacts:
+  files: 
+    - build.json   
+    - infra/*

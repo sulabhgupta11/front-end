@@ -1,0 +1,36 @@
+{
+    "name": "crack-deal",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint"
+    },
+    "dependencies": {
+        "@emotion/react": "^11.5.0",
+        "@emotion/styled": "^11.3.0",
+        "@hookform/resolvers": "^2.7.1",
+        "@material/slider": "^13.0.0",
+        "@mui/material": "^5.1.0",
+        "@zeit/next-css": "^1.0.1",
+        "bcryptjs": "^2.4.3",
+        "express-jwt": "^6.1.0",
+        "jsonwebtoken": "^8.5.1",
+        "material-ui-slider": "^3.0.8",
+        "next": "^11.1.0",
+        "node-sass": "^4.14.1",
+        "prop-types": "^15.7.2",
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2",
+        "react-hook-form": "^7.12.1",
+        "rxjs": "^7.3.0",
+        "saas": "^1.0.0",
+        "yup": "^0.32.9"
+    },
+    "devDependencies": {
+        "eslint": "7.32.0",
+        "eslint-config-next": "11.1.0"
+    }
+}

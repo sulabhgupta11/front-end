@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fron-end-srv
+  namespace: crackdeal-ns
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: crackdeal
+  template:
+    metadata:
+      labels:
+        app: crackdeal
+    spec:
+      containers:
+      - name: fron-end-srv
+        image: CONTAINER_IMAGE
+        resources:
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+          requests:
+             memory: "512Mi"
+             cpu: "500m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: front-end-srv
+  namespace: crackdeal-ns
+spec:
+  selector:
+    app: crackdeal
+  ports:
+  - port: 3000
+    targetPort: 3000
