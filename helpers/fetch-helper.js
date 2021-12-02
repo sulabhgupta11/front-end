@@ -51,7 +51,7 @@ function _delete(url) {
 
 function authBasicHeader() {   // return auth header with jwt if user is logged in and request is to the api url
     return {
-        Authorization: `Basic ${Buffer.from(`ui:ui`).toString('base64')}`
+        Authorization: `Basic ${Buffer.from(`app@app.com:app@app.com`).toString('base64')}`
     };
 
 }
