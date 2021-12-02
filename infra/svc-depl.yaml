@@ -14,8 +14,15 @@ spec:
         app: crackdeal
     spec:
       containers:
-      - name: front-end-srv
-        image: CONTAINER_IMAGE
+        - name: front-end-srv
+          image: CONTAINER_IMAGE
+          resources:
+            limits:
+              memory: "150Mi"
+              cpu: "500m"
+            requests:
+              memory: "150Mi"
+              cpu: "500m"
 ---
 apiVersion: v1
 kind: Service
