@@ -4,10 +4,8 @@ metadata:
   name: frontend-route
   namespace: crackdeal-ns
 spec:
-  gateways:
-  - crackdeal-gateway
   hosts:
-   - "*"
+   - "front-end-srv.crackdeal-ns.svc.cluster.local"
   http:
   - name: frontend-stable-route
     match:
@@ -41,6 +39,6 @@ spec:
   - name: canary
     labels:
       version: "1.1.0"
-  trafficPolicy:
-    tls:
-      mode: ISTIO_MUTUAL
+  # trafficPolicy:
+  #   tls:
+  #     mode: ISTIO_MUTUAL
