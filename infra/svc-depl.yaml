@@ -7,15 +7,23 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: crackdeal
+      app: front-end-app
   template:
     metadata:
       labels:
-        app: crackdeal
+        app: front-end-app
+        version: "1.0.0"
     spec:
       containers:
-      - name: front-end-srv
-        image: CONTAINER_IMAGE
+        - name: front-end-srv
+          image: CONTAINER_IMAGE
+          resources:
+            limits:
+              memory: "150Mi"
+              cpu: "500m"
+            requests:
+              memory: "150Mi"
+              cpu: "500m"
 ---
 apiVersion: v1
 kind: Service
@@ -24,7 +32,7 @@ metadata:
   namespace: crackdeal-ns
 spec:
   selector:
-    app: crackdeal
+    app: front-end-app
   ports:
   - port: 3000
     targetPort: 3000
