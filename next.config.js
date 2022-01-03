@@ -5,7 +5,7 @@ module.exports = {
   },
   publicRuntimeConfig: {
     apiUrl: process.env.NODE_ENV === 'development'
-      ? 'http://crackdeal.click' // development api
-      : 'http://crackdeal.click' // production api
+      ? 'https://crackdeal.click' // development api
+      : 'https://crackdeal.click' // production api
   }
 }
