@@ -58,7 +58,7 @@ function Login() {
                             </button>
                         </div>
                         <div className="form-group">
-                            <Link style={{ width: "270px" }} href="/auth/register" className="btn btn-secondary">Register</Link>
+                            <Link style={{ width: "270px" }} href="/user/register" className="btn btn-secondary">Register</Link>
                         </div>
                     </form>
                 </div>

@@ -34,7 +34,7 @@ function Register() {
         user.role = 'USER'
         return userService.register({ user: user })
             .then(() => {
-                alertService.success('Registration successful', { keepAfterRouteChange: true });
+                // alertService.success('Registration successful', { keepAfterRouteChange: true });
                 router.push('login');
             })
             .catch(alertService.error);

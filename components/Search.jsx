@@ -5,12 +5,6 @@ import Slider from '@mui/material/Slider';
 const searchReducer = (state, action) => {
     switch (action.type) {
         case 'term':
-            if (state.filters != null && (action.payload.value == null || action.payloadvalue == '')) {
-                return {
-                    ...state,
-                    filters: state.filters.filter(filter => filter.key !== action.type)
-                }
-            }
             return {
                 ...state,
                 searchText: action.payload
